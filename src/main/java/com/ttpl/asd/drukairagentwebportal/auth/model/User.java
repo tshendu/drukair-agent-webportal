@@ -22,6 +22,7 @@ public class User {
     private String agentname;
     private String password;
     private String passwordConfirm;
+    private String companyCode;
 //    private String address;
 //    private Date entryDate;
     private Boolean status;
@@ -64,6 +65,14 @@ public class User {
 
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
+    }
+
+    public String getCompanyCode() {
+        return companyCode;
+    }
+
+    public void setCompanyCode(String companyCode) {
+        this.companyCode = companyCode;
     }
 
     @ManyToMany

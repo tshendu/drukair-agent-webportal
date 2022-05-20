@@ -2,22 +2,32 @@ dashboard = (function () {
     "use strict";
 
     function baseURL() {
-        return ttplGlobal.baseUrl()+'dashboard';
+        return ttplGlobal.baseUrl() + 'dashboard';
     }
 
     function getCustomerDetails() {
         $("#generateBtn").on('click', function () {
             var agentCode = $('#agentCode').val();
             var startDate = $('#startDate').val();
+
             var endDate = $('#endDate').val();
-            if (startDate !== "" && endDate !==""){
+            let isChecked = $('#specialGL').is(":checked");
+            let specialGL = 0;
+            if (isChecked) {
+                specialGL = 1;
+            }
+
+            // var specialGL = $('#specialGL').val();
+
+            if (startDate !== "" && endDate !== "") {
                 $.ajax({
                     url: baseURL() + "/getCustomerDetails",
                     type: 'GET',
                     data: {
-                        agentCode:agentCode,
+                        agentCode: agentCode,
                         startDate: startDate,
-                        endDate: endDate
+                        endDate: endDate,
+                        specialGL: specialGL
                     },
                     success: function (res) {
                         if (res.status === 1) {
@@ -27,14 +37,13 @@ dashboard = (function () {
                             // var pdfWindow = window.open(url);
 
 
-
                             var byteCharacters = atob(dat);
                             var byteNumbers = new Array(byteCharacters.length);
                             for (var i = 0; i < byteCharacters.length; i++) {
                                 byteNumbers[i] = byteCharacters.charCodeAt(i);
                             }
                             var byteArray = new Uint8Array(byteNumbers);
-                            var file = new Blob([byteArray], { type: 'application/pdf;base64' });
+                            var file = new Blob([byteArray], {type: 'application/pdf;base64'});
                             var fileURL = URL.createObjectURL(file);
                             window.open(fileURL);
 
@@ -72,10 +81,22 @@ dashboard = (function () {
             }
         });
     }
+
     return {
         getCustomerDetails: getCustomerDetails
     }
 })();
 $(document).ready(function () {
     dashboard.getCustomerDetails();
+
+    var minOffset = 0,
+        maxOffset = 20;
+
+    var thisYear = new Date().getFullYear();
+    var select = $('#year');
+
+    for (var i = minOffset; i <= maxOffset; i++) {
+        var year = thisYear - i;
+        $('<option>', {value: year, text: year}).appendTo(select);
+    }
 });

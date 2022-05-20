@@ -51,7 +51,7 @@
                                        class="">
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 row">
                             <label class="col-md-12 text-left required">Status</label>
                             <label class="custom-label">
                                 <input type="radio" name="status" value="true" checked>Active

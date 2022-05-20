@@ -851,7 +851,36 @@ button:focus {
     border: none;
     border-bottom: 1px solid #eeeeee;
     padding: 12px; }
-    .register_form input:focus {
+
+.register_form select:invalid  {
+  color: #aaaaaa;
+}
+
+.register_form  option  {
+  color: #0a0c0d;
+}
+
+
+.register_form select {
+  padding-left: 0px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #eeeeee;
+  margin:12px;
+  /*color: #aaaaaa;*/
+  font-size: 14px;
+  font-weight: 500;
+  /*padding: 12px;*/
+}
+
+.register_form option:checked {
+  color: #2b2b2b;
+  /*background-color: yellow;*/
+}
+
+
+
+.register_form input:focus {
       outline: none;
       box-shadow: none; }
     .register_form input.placeholder {
@@ -3398,5 +3427,7 @@ h6 {
           margin-top: 20px; } }
 
 /*---------------------------------------------------- */
+
+
 
 /*# sourceMappingURL=style.css.map */

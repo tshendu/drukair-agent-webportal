@@ -22,8 +22,9 @@ public class JasyptConfiguration {
         config.setStringOutputType("base64");
         encryptor.setConfig(config);
 
-        String plainText= "password";
+        String plainText= "sa1234";
         String encryptedtext = encryptor.encrypt(plainText);
+        String decryptedText = encryptor.decrypt("gafKn1PrLYbiCwCXrIY3Ow==");
         return encryptor;
     }
 }

@@ -8,6 +8,7 @@ import java.util.Set;
 @Entity
 @Table(name = "da_role")
 public class Role {
+    @Column(columnDefinition = "bigint(255)")
     private BigInteger id;
     private String name;
     private Set < User > users;

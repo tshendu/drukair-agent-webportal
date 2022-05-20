@@ -57,7 +57,7 @@
                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                 </form>
 
-                                <a class="nav-link" onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
+                                <a class="nav-link cursor-pointer" onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
                             </c:if>
                         </li>
 
@@ -66,7 +66,7 @@
                 </div>
             </div>
         </nav>
-        <h5 style="text-align: center">Welcome to ${currentUser.agentName}</h5>
+        <h5 style="text-align: center">Welcome: ${currentUser.agentName}</h5>
 
     </div>
 

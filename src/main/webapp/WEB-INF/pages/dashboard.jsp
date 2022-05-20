@@ -20,6 +20,11 @@
 <html lang="en">
 <head>
     <title>Druk Air Agent Portal</title>
+    <style>
+        .label{
+           padding-left: 0px;
+        }
+    </style>
 </head>
 <body>
 
@@ -32,21 +37,61 @@
                     <div class="mt-10">
                         <security:authorize access="hasRole('ROLE_ADMIN')">
                             <div class="mt-10">
-                                <input name="agentCode"  id="agentCode" type="text" class="" placeholder="Agent Code"
-                                       autofocus="true" autocomplete="off"/>
+                                <input name="agentCode" id="agentCode" type="text" class="" placeholder="Agent Code"
+                                       autofocus="true" autocomplete="off" required/>
                             </div>
                         </security:authorize>
 
-                        <input type="text" id="startDate" name="first_name" placeholder="Start Date" required
-                               onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start Date'"
-                               class="datepicker" autocomplete="off">
-                    </div>
-                    <div class="mt-10">
-                        <input type="text" id="endDate" name="last_name" placeholder="End Date"
-                               onfocus="this.placeholder = ''"
-                               onblur="this.placeholder = 'End Date'" required
-                               class="datepicker" autocomplete="off">
-                    </div>
+                        <div class="col-md-8">
+                            <input type="text" name="startDate" id="startDate"
+                                   class="form-control datepicker field" autocomplete="off"
+                                   required placeholder="Start date">
+                            <%--                                                    <input type="text" id="datetimepicker" class="form-control">--%>
+                        </div>
+
+                        <div class="col-md-8">
+                            <input type="text" name="endDate" id="endDate"
+                                   class="form-control datepicker field" autocomplete="off"
+                                   required placeholder="End date">
+                            <%--                                                    <input type="text" id="datetimepicker" class="form-control">--%>
+                        </div>
+
+                        <div class="col-md-9 row">
+                            <div class="col-md-6 label">
+                               <label class="left-align-p" style="text-align: left"> Special GL</label>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="checkbox" name="specialGL" id="specialGL"
+                                       autocomplete="off"
+                                       required>
+                            </div>
+
+                            <%--                                                    <input type="text" id="datetimepicker" class="form-control">--%>
+                        </div>
+
+<%--                        <select name="month" id="month" class="form-control" required>--%>
+<%--                            <option value="">-- Select Month--</option>--%>
+<%--                            <option value="1">January</option>--%>
+<%--                            <option value="2">February</option>--%>
+<%--                            <option value="3">March</option>--%>
+<%--                            <option value="4">April</option>--%>
+<%--                            <option value="5">May</option>--%>
+<%--                            <option value="6">June</option>--%>
+<%--                            <option value="7">July</option>--%>
+<%--                            <option value="8">August</option>--%>
+<%--                            <option value="9">September</option>--%>
+<%--                            <option value="10">October</option>--%>
+<%--                            <option value="11">November</option>--%>
+<%--                            <option value="12">December</option>--%>
+<%--                        </select>--%>
+<%--                    </div>--%>
+<%--                    <div class="mt-10">--%>
+<%--                        <select id="year" class="form-control" name="year" required>--%>
+<%--                            <option value="">--Select Year--</option>--%>
+<%--                        </select>--%>
+
+<%--                    </div>--%>
                     <div class="mt-10">
                         <button id="generateBtn" class="primary-btn">Generate Report</button>
                     </div>
